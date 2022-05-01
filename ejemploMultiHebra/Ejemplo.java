@@ -1,19 +1,19 @@
-package ejemploSimple;
+package ejemploMultiHebra;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.lang.Thread;
 
 public class Ejemplo implements Ejemplo_I {
     public Ejemplo() {
         super();
     }
 
-    public void escribir_mensaje(int id_proceso) {
-        System.out.println("Recibida peticion de proceso: " + id_proceso);
-        if (id_proceso == 0) {
+    public void escribir_mensaje(String mensaje) {
+        System.out.println("\nEntra Hebra " + mensaje);
+        // Buscamos los procesos 0, 10, 20,...
+        if (mensaje.endsWith("0")) {
             try {
                 System.out.println("Empezamos a dormir");
                 Thread.sleep(5000);
@@ -23,8 +23,7 @@ public class Ejemplo implements Ejemplo_I {
                 e.printStackTrace();
             }
         }
-        System.out.println("\nHebra " + id_proceso);
-
+        System.out.println("Sale Hebra " + mensaje);
     }
 
     public static void main(String[] args) {
