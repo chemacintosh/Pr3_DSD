@@ -1,4 +1,3 @@
-package ejemploSimple;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -32,9 +31,11 @@ public class Ejemplo implements Ejemplo_I {
             System.setSecurityManager(new SecurityManager());
         }
         try {
+
             String nombre_objeto_remoto = "Ejemplo_I";
             Ejemplo_I prueba = new Ejemplo();
             Ejemplo_I stub = (Ejemplo_I) UnicastRemoteObject.exportObject(prueba, 0);
+            System.setProperty("java.rmi.server.hostname", "192.168.1.191");
             Registry registry = LocateRegistry.getRegistry();
             registry.rebind(nombre_objeto_remoto, stub);
             System.out.println("Ejemplo bound");
