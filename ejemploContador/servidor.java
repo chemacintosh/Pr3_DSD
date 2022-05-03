@@ -1,4 +1,3 @@
-package ejemploContador;
 
 import java.net.MalformedURLException;
 import java.rmi.*;
@@ -15,13 +14,13 @@ public class servidor {
         }
         try {
             // Crea una instancia de contador
-            // System.setProperty("java.rmi.server.hostname","192.168.1.107");
+            // System.setProperty("java.rmi.server.hostname", "192.168.1.107");
             Registry reg = LocateRegistry.createRegistry(1099);
             contador micontador = new contador();
-            Naming.rebind("mmicontador", micontador);
+            reg.rebind("mmicontador", micontador);
             // suma = 0;
             System.out.println("Servidor RemoteException | MalformedURLExceptiondor preparado");
-        } catch (RemoteException | MalformedURLException e) {
+        } catch (RemoteException e) {
             System.out.println("Exception: " + e.getMessage());
         }
     }

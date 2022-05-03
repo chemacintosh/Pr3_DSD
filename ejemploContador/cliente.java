@@ -1,4 +1,3 @@
-package ejemploContador;
 
 import java.net.MalformedURLException;
 import java.rmi.registry.LocateRegistry;

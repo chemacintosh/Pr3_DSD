@@ -1,4 +1,3 @@
-package ejemploContador;
 
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;

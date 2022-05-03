@@ -1,4 +1,3 @@
-package ejMultiHebra;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
